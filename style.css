@@ -1,0 +1,102 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: whitesmoke;
+}
+
+.text-title {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  font-family: "Square Peg", cursive !important;
+  text-transform: capitalize;
+}
+
+/* loader css */
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.loader img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* image container css */
+.img-container {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, 5vw);
+  row-gap: 15px;
+  column-gap: 5px; */
+  /* display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 5px; */
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(50px, auto);
+  /* align-content: start;
+  align-items: start; */
+  width: 100%;
+  margin: 10px 35%;
+  animation: fallAnimation 3s forwards; /* Start the animation */
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 5px;
+  border-radius: 12px;
+}
+
+img:hover {
+  animation: forwards 5s 0s iteration-count forwards;
+  transform: scale(0.9, 0.9);
+  transition: transform 0.2s ease-in;
+}
+
+.img-container:hover img:not(:hover) {
+  filter: blur(5px); /* Apply blur on non-hovered images within the container */
+}
+
+@keyframes fallAnimation {
+  0% {
+    transform: translateY(-100%);
+  }
+  70% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1; /* Make the images visible when the animation completes */
+  }
+}
+/* media queries for lg phone */
+@media screen and (max-width: 600px) {
+  .text-title {
+    font-size: 30px;
+  }
+
+  .img-container {
+    flex-direction: column;
+    margin: 5px;
+  }
+}
